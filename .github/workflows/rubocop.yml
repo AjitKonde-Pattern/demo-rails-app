@@ -10,7 +10,7 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: ${{matrix.ruby-version}}
+        ruby-version: 1.9
         bundler-cache: true
     - name: Run RuboCop
       run: bundle exec rubocop --parallel
