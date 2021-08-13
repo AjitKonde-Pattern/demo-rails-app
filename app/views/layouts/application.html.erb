@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= t("title") %></title>
+
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <meta content="nofollow" name="robots" />
+  <meta content="noindex" name="robots" />
+
+  <%= phraseapp_in_context_editor_js %>
+
+</head>
+<body>
+    <div id="all">
+        <div id="header2">
+            <div class="inner">
+                <a class="top_item" href="https://phrase.com" target="_blank">Phrase</a>
+                <a class="top_item" href="https://help.phrase.com/help" target="_blank">Documentation</a>
+                <a class="top_item" href="https://github.com/phrase/demo-rails-app" target="_blank">Source Code</a>
+            </div>
+        </div>
+    </div>
+    <div id="all">
+        <div id="header">
+            <div class="inner">
+                <h1><span class="intro"><%= t('intro') %></span> <span class="branding"><%= t('my_simple_todo_app') %></span></h1>
+            </div>
+        </div>
+
+        <div id="content">
+            <div class="inner">
+                <% if alerted = alert %>
+                    <p id="alert"><%= alerted %></p>
+                <% end %>
+                <%= yield %>
+            </div>
+        </div>
+
+    		<div id="foot">
+            <div class="inner">
+          			<div class="copyright">
+              			<p>
+              			  Running on Phrase and Rails with the Phrase In Context Editor<br />Source: <a href="https://github.com/phrase/demo-rails-app" target="_blank">github.com/phrase/demo-rails-app</a>
+              			</p>
+          			</div>
+            </div>
+    		</div>
+    </div>
+</body>
+</html>
