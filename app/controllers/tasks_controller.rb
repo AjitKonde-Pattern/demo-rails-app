@@ -4,7 +4,7 @@ class TasksController < ApplicationController
     @task   = Task.new
     @lists  = List.all
     @list   = List.new
-
+    @taskslist = List.all
     respond_to do |format|
       format.html
       format.json do
@@ -17,6 +17,7 @@ class TasksController < ApplicationController
     @list = List.find(params[:list_id])
     task_params = params[:task].is_a?(String) ? JSON.parse(params[:task]) : params[:task]
     task_params = secure_user_input(task_params)
+    task_new_param = params[:task]
     @task = @list.tasks.new(task_params)
     if @task.save
       status = "success"
